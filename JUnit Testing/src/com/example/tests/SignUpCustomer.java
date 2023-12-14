@@ -1,4 +1,4 @@
-package com.tests;
+package com.example.tests;
 
 import java.util.regex.Pattern;
 import java.nio.charset.Charset;
@@ -41,44 +41,40 @@ public class SignUpCustomer {
   @Test
   public void testSignUpCustomer() throws Exception {
 	String email = getRandomString();
-	Thread.sleep(500);
     driver.get("http://ec2-3-14-143-146.us-east-2.compute.amazonaws.com:8080/ContractOne/Login.jsp");
-    Thread.sleep(2000);
+    Thread.sleep(1000);
     driver.findElement(By.linkText("Sign Up")).click();
-    Thread.sleep(2000);
-    driver.get("http://ec2-3-14-143-146.us-east-2.compute.amazonaws.com:8080/ContractOne/SignUp.jsp");
-    Thread.sleep(2000);
+    Thread.sleep(1000);
     driver.findElement(By.name("name")).click();
     driver.findElement(By.name("name")).clear();
     driver.findElement(By.name("name")).sendKeys("SELENIUMTESTCUST");
-    Thread.sleep(2000);
+    Thread.sleep(1000);
     driver.findElement(By.name("address")).clear();
     driver.findElement(By.name("address")).sendKeys("1234 Testing Boulevard");
-    Thread.sleep(2000);
+    Thread.sleep(1000);
     driver.findElement(By.name("phone")).clear();
     driver.findElement(By.name("phone")).sendKeys("123-123-1234");
-    Thread.sleep(2000);
+    Thread.sleep(1000);
     driver.findElement(By.name("email")).clear();
     driver.findElement(By.name("email")).sendKeys(email+"@test.org");
-    Thread.sleep(2000);
+    Thread.sleep(1000);
     driver.findElement(By.name("description")).clear();
     driver.findElement(By.name("description")).sendKeys("SELENIUM TESTER!");
-    Thread.sleep(2000);
+    Thread.sleep(1000);
     driver.findElement(By.name("password")).clear();
     driver.findElement(By.name("password")).sendKeys("Test@1234");
-    Thread.sleep(2000);
+    Thread.sleep(1000);
     driver.findElement(By.xpath("//button[@type='submit']")).click();
-    Thread.sleep(2000);
-    driver.get("http://ec2-3-14-143-146.us-east-2.compute.amazonaws.com:8080/ContractOne/Login.jsp");
-    Thread.sleep(2000);
+    Thread.sleep(1000);
     driver.findElement(By.id("email")).click();
     driver.findElement(By.id("email")).clear();
     driver.findElement(By.id("email")).sendKeys(email+"@test.org");
-    Thread.sleep(2000);
+    Thread.sleep(1000);
     driver.findElement(By.id("password")).clear();
     driver.findElement(By.id("password")).sendKeys("Test@1234");
-    Thread.sleep(2000);
+    Thread.sleep(1000);
     driver.findElement(By.xpath("//button[@type='submit']")).click();
+    Thread.sleep(1000);
   }
 
   @After

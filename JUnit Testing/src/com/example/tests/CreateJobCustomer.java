@@ -1,4 +1,4 @@
-package com.tests;
+package com.example.tests;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class LoginContractor {
+public class CreateJobCustomer {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -25,19 +25,27 @@ public class LoginContractor {
   }
 
   @Test
-  public void testLoginContractor() throws Exception {
+  public void testCreateJobCustomer() throws Exception {
     driver.get("http://ec2-3-14-143-146.us-east-2.compute.amazonaws.com:8080/ContractOne/Login.jsp");
-    Thread.sleep(2000);
+    Thread.sleep(1000);
     driver.findElement(By.id("email")).click();
     driver.findElement(By.id("email")).clear();
-    driver.findElement(By.id("email")).sendKeys("r");
-    Thread.sleep(2000);
+    driver.findElement(By.id("email")).sendKeys("DaveyJonesLocker@yahoo.com");
+    Thread.sleep(1000);
     driver.findElement(By.id("password")).clear();
-    driver.findElement(By.id("password")).sendKeys("r");
-    Thread.sleep(2000);
+    driver.findElement(By.id("password")).sendKeys("MoneyMoneyMoney");
+    Thread.sleep(1000);
     driver.findElement(By.xpath("//button[@type='submit']")).click();
-    Thread.sleep(2000);
-    driver.get("http://ec2-3-14-143-146.us-east-2.compute.amazonaws.com:8080/ContractOne/Contractor-Home.jsp");
+    Thread.sleep(1000);
+    driver.findElement(By.id("title")).click();
+    driver.findElement(By.id("title")).clear();
+    driver.findElement(By.id("title")).sendKeys("SeleniumTest");
+    Thread.sleep(1000);
+    driver.findElement(By.id("message")).clear();
+    driver.findElement(By.id("message")).sendKeys("JUNIT SELENIUM TEST!");
+    Thread.sleep(1000);
+    driver.findElement(By.xpath("//button[@type='submit']")).click();
+    Thread.sleep(1000);
   }
 
   @After

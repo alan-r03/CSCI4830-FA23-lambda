@@ -1,4 +1,4 @@
-package com.tests;
+package com.example.tests;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class ArchiveJobCustomer {
+public class DeleteJobCustomer {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -25,27 +25,32 @@ public class ArchiveJobCustomer {
   }
 
   @Test
-  public void testArchiveJobCustomer() throws Exception {
+  public void testDeleteBidCustomer() throws Exception {
     driver.get("http://ec2-3-14-143-146.us-east-2.compute.amazonaws.com:8080/ContractOne/Login.jsp");
-    Thread.sleep(2000);
+    Thread.sleep(1000);
     driver.findElement(By.id("email")).click();
     driver.findElement(By.id("email")).clear();
+    Thread.sleep(1000);
     driver.findElement(By.id("email")).sendKeys("q");
-    Thread.sleep(2000);
     driver.findElement(By.id("password")).clear();
     driver.findElement(By.id("password")).sendKeys("q");
-    Thread.sleep(2000);
+    Thread.sleep(1000);
     driver.findElement(By.xpath("//button[@type='submit']")).click();
-    Thread.sleep(2000);
-    driver.get("http://ec2-3-14-143-146.us-east-2.compute.amazonaws.com:8080/ContractOne/Customer-Home.jsp");
-    Thread.sleep(2000);
+    Thread.sleep(1000);
     driver.findElement(By.id("ID")).click();
     driver.findElement(By.id("ID")).clear();
-    driver.findElement(By.id("ID")).sendKeys("1");
-    Thread.sleep(2000);
+    driver.findElement(By.id("ID")).sendKeys("14");
+    Thread.sleep(1000);
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='JobID'])[3]/following::button[1]")).click();
-    Thread.sleep(2000);
-    driver.get("http://ec2-3-14-143-146.us-east-2.compute.amazonaws.com:8080/ContractOne/GetBids");
+    Thread.sleep(1000);
+    driver.findElement(By.name("status")).click();
+    Thread.sleep(1000);
+    new Select(driver.findElement(By.name("status"))).selectByVisibleText("Delete");
+    Thread.sleep(1000);
+    driver.findElement(By.xpath("//option[@value='delete']")).click();
+    Thread.sleep(1000);
+    driver.findElement(By.xpath("//button[@type='submit']")).click();
+    Thread.sleep(1000);
   }
 
   @After

@@ -1,4 +1,4 @@
-package com.tests;
+package com.example.tests;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class BidJobContractor {
+public class LoginCustomer {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -25,35 +25,18 @@ public class BidJobContractor {
   }
 
   @Test
-  public void testBidJobContractor() throws Exception {
+  public void testLoginCustomer() throws Exception {
     driver.get("http://ec2-3-14-143-146.us-east-2.compute.amazonaws.com:8080/ContractOne/Login.jsp");
-    Thread.sleep(2000);
+    Thread.sleep(1000);
     driver.findElement(By.id("email")).click();
     driver.findElement(By.id("email")).clear();
-    driver.findElement(By.id("email")).sendKeys("r");
-    Thread.sleep(2000);
+    driver.findElement(By.id("email")).sendKeys("DaveyJonesLocker@yahoo.com");
+    Thread.sleep(1000);
     driver.findElement(By.id("password")).clear();
-    driver.findElement(By.id("password")).sendKeys("r");
-    Thread.sleep(2000);
+    driver.findElement(By.id("password")).sendKeys("MoneyMoneyMoney");
+    Thread.sleep(1000);
     driver.findElement(By.xpath("//button[@type='submit']")).click();
-    Thread.sleep(2000);
-    driver.get("http://ec2-3-14-143-146.us-east-2.compute.amazonaws.com:8080/ContractOne/Contractor-Home.jsp");
-    Thread.sleep(2000);
-    driver.findElement(By.id("name")).click();
-    driver.findElement(By.id("name")).clear();
-    driver.findElement(By.id("name")).sendKeys("1");
-    Thread.sleep(2000);
-    driver.findElement(By.xpath("//button[@type='submit']")).click();
-    Thread.sleep(2000);
-    driver.get("http://ec2-3-14-143-146.us-east-2.compute.amazonaws.com:8080/ContractOne/JobInfo");
-    Thread.sleep(2000);
-    driver.findElement(By.id("bid")).click();
-    driver.findElement(By.id("bid")).clear();
-    driver.findElement(By.id("bid")).sendKeys("1000");
-    Thread.sleep(2000);
-    driver.findElement(By.xpath("//button[@type='submit']")).click();
-    Thread.sleep(2000);
-    driver.get("http://ec2-3-14-143-146.us-east-2.compute.amazonaws.com:8080/ContractOne/Contractor-Home.jsp");
+    Thread.sleep(1000);
   }
 
   @After

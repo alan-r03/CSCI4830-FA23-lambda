@@ -1,4 +1,4 @@
-package com.tests;
+package com.example.tests;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class CreateJobCustomer {
+public class ViewJobCustomer {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -25,28 +25,24 @@ public class CreateJobCustomer {
   }
 
   @Test
-  public void testCreateJobCustomer() throws Exception {
+  public void testViewJobCustomer() throws Exception {
     driver.get("http://ec2-3-14-143-146.us-east-2.compute.amazonaws.com:8080/ContractOne/Login.jsp");
-    Thread.sleep(2000);
+    Thread.sleep(1000);
     driver.findElement(By.id("email")).click();
     driver.findElement(By.id("email")).clear();
-    driver.findElement(By.id("email")).sendKeys("q");
-    Thread.sleep(2000);
+    driver.findElement(By.id("email")).sendKeys("DaveyJonesLocker@yahoo.com");
+    Thread.sleep(1000);
     driver.findElement(By.id("password")).clear();
-    driver.findElement(By.id("password")).sendKeys("q");
-    Thread.sleep(2000);
+    driver.findElement(By.id("password")).sendKeys("MoneyMoneyMoney");
+    Thread.sleep(1000);
     driver.findElement(By.xpath("//button[@type='submit']")).click();
-    Thread.sleep(2000);
-    driver.get("http://ec2-3-14-143-146.us-east-2.compute.amazonaws.com:8080/ContractOne/Customer-Home.jsp");
-    Thread.sleep(2000);
-    driver.findElement(By.id("title")).click();
-    driver.findElement(By.id("title")).clear();
-    driver.findElement(By.id("title")).sendKeys("SeleniumTest");
-    Thread.sleep(2000);
-    driver.findElement(By.id("message")).clear();
-    driver.findElement(By.id("message")).sendKeys("JUNIT SELENIUM TEST!");
-    Thread.sleep(2000);
-    driver.findElement(By.xpath("//button[@type='submit']")).click();
+    Thread.sleep(1000);
+    driver.findElement(By.id("ID")).click();
+    driver.findElement(By.id("ID")).clear();
+    driver.findElement(By.id("ID")).sendKeys("4");
+    Thread.sleep(1000);
+    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Which Job would you like to delete/view bids for?'])[1]/following::button[1]")).click();
+    Thread.sleep(1000);
   }
 
   @After
